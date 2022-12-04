@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/d1557c7a8f.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/styles.css" class="rel" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <header>WEATHER APP</header>
+    <div class="container">
+      <div class="row" style="text-align: center;" id="family-cities">
+        <div class="col city">Vigo</div>
+        <div class="col city">Tralee</div>
+        <div class="col city">Hobart</div>
+        <div class="col city">Dublin</div>
+      </div>
+      
+
+      <form id="search-form">
+        <input
+          class="search-bar"
+          type="text"
+          placeholder="Search for a city here"
+          autofocus ="on"
+          autocomplete="off"
+          style="width: 24rem;"
+          id="search-text-input"
+        />
+        <input class="btn btn-outline-primary" type="submit" value="Search" id="search-button"/>
+      </form>
+      <button class="btn btn-outline-primary" type="click" value="Current Location" id="current-location-button">Current Location</button>
+      <br />
+      <div class="row">
+        <div class="col"><p class="date-time" id="date-time"></p></div>
+        <div class="col"><p class="temp-unit" style="text-align: right;"><a href ="#" id = "temp-celcius">°C</a> | <a href ="#" id = "temp-fahrenheit">°F</a></p></div>
+      </div>
+      <div
+        class="card mb-3"
+        style="max-width: 540px;"
+        style="text-align: center;"
+      >
+        <div class="row g-0">
+          <div class="col-md-8">
+            <div class="card-body">
+              <h2 class="card-title" style="text-align: center;" id="main-city"></h2>
+              <p class="card-text" style="text-align: center;">
+                <p id="weather-description"></p>
+                <p class="card-text-main" style="text-align: center;">
+                <span id ="low-temp"></span><span>°</span> | <span id="high-temp"></span><span><strong>°</strong></span>
+              </p>
+             
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-body" id="main-info">
+              <p class="card-text-main" style="text-align: center;">
+                Currently: 
+                <br/>
+                <span class= "main-temp" id="main-temp"> </span><span class= "main-temp">°C</span>
+              </p>
+              <p style="text-align: center;">Wind: <span id="wind-speed"></span> knts <br/> Humidity: <span id="humidity"></span>%
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container text-center" id="five-day-forecast">
+        <div class="row">
+          <div class="col">
+            <div class="card-body">
+              <h5 class="card-title">Mon</h5>
+              <p class="card-text"><i class="fa-solid fa-cloud-sun"></i></p>
+              <p class="card-text">11° <br /><strong>22°</strong></p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card-body">
+              <h5 class="card-title">Tues</h5>
+              <p class="card-text">
+                <i class="fa-solid fa-cloud-sun-rain"></i>
+              </p>
+              <p class="card-text">9° <br /><strong>21° </strong></p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card-body">
+              <h5 class="card-title">Wed</h5>
+              <p class="card-text"><i class="fa-solid fa-cloud"></i></p>
+              <p class="card-text">10° <br /><strong>21° </strong></p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card-body">
+              <h5 class="card-title">Thurs</h5>
+              <p class="card-text"><i class="fa-regular fa-sun"></i></p>
+              <p class="card-text">13° <br /><strong>22°</strong></p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card-body">
+              <h5 class="card-title">Fri</h5>
+              <p class="card-text"><i class="fa-solid fa-cloud"></i></p>
+              <p class="card-text">10° <br /><strong>21° </strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      
+      <footer>
+        This page was built by
+        <a
+          href="https://www.linkedin.com/in/sarah-barter-6383b196/"
+          target="_blank"
+          class="bio"
+          >Sarah Barter</a
+        >
+      </footer>
+    <script src=src/index.js></script>
+  </body>
+</html>
