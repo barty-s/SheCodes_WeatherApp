@@ -52,8 +52,11 @@ function showWeatherMain(response) {
   document.querySelector("#humidity").innerHTML =
     response.data.temperature.humidity;
   document.querySelector("#wind-speed").innerHTML = Math.round(
-    response.data.wind.speed * 1.943844
+    response.data.wind.speed * 1.944
   );
+  document
+    .querySelector("#main-weather-icon")
+    .setAttribute("src", response.data.condition.icon_url);
 }
 
 function search(city) {
@@ -76,7 +79,6 @@ form.addEventListener("submit", handleSubmit);
 search("Tralee");
 
 function retrievePosition(response) {
-  //console.log(position);
   let lon = response.coordinates.longitude;
   let lat = response.coordinates.latitude;
   let units = "metric";
