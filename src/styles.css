@@ -39,7 +39,7 @@ h5 {
   border-color: #55758c;
 }
 .search-bar {
-  background: #e5fffa;
+  background: #e8fcf8;
   border: none;
   border-radius: 6px;
   color: #55758c;
@@ -105,6 +105,9 @@ i:hover {
   margin: 0;
   font-size: 18px;
 }
+.main-info {
+  padding: 0 16px;
+}
 #five-day-forecast {
   padding: 0;
   margin: 0 auto 10px;
@@ -124,7 +127,9 @@ i:hover {
 }
 #main-city {
   text-transform: capitalize;
+  margin: 0;
 }
 #weather-description {
   text-transform: capitalize;
+  margin: 0;
 }
