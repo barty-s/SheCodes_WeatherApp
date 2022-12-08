@@ -1,5 +1,9 @@
 body {
-  background: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
+  background: linear-gradient(
+    95.2deg,
+    rgb(173, 252, 234) 26.8%,
+    rgb(192, 229, 246) 64%
+  );
   color: #55758c;
   font-family: "Source Sans Pro", sans-serif;
 }
@@ -67,6 +71,7 @@ h5 {
 #temp-celcius,
 #temp-fahrenheit {
   text-decoration: none;
+  color: #55758c;
   margin-top: 0;
 }
 .bio:hover {
