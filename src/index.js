@@ -41,8 +41,9 @@ dateTime.innerHTML = formatDate(now);
 
 //Display current weather on screen - search and current location button
 function showWeatherMain(response) {
-  console.log(response);
   celsiusTemperature = response.data.temperature.current;
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
   document.querySelector("#main-city").innerHTML = response.data.city;
   document.querySelector("#main-temp").innerHTML =
     Math.round(celsiusTemperature);
