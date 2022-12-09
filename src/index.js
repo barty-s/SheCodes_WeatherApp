@@ -42,9 +42,7 @@ dateTime.innerHTML = formatDate(now);
 //Display current weather on screen - search and current location button
 function showWeatherMain(response) {
   celsiusTemperature = response.data.temperature.current;
-
   document.querySelector("#main-city").innerHTML = response.data.city;
-
   document.querySelector("#main-temp").innerHTML =
     Math.round(celsiusTemperature);
   document.querySelector("#weather-description").innerHTML =
@@ -80,12 +78,12 @@ form.addEventListener("submit", handleSubmit);
 
 // To retrieve weather for current location
 function retrievePosition(response) {
-  let lon = response.coordinates.longitude;
-  let lat = response.coordinates.latitude;
+  let lon = response.coords.longitude;
+  let lat = response.coords.latitude;
   let units = "metric";
   let apiKey = "8904bbdf33fa8fc0f4cabacact251o36";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=${units}`;
-  axios.get(`${apiUrl}`).then(showWeatherMain);
+  axios.get(apiUrl).then(showWeatherMain);
 }
 
 function getLocation(event) {
