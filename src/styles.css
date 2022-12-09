@@ -49,6 +49,9 @@ h5 {
   line-height: 19px;
   padding: 15px 20px;
 }
+.search-bar:focus {
+  outline: none;
+}
 .mb-3 {
   border: none;
   margin-bottom: 0;
@@ -68,7 +71,7 @@ h5 {
   font-weight: bolder;
 }
 .bio,
-#temp-celcius,
+#temp-celsius,
 #temp-fahrenheit {
   text-decoration: none;
   color: #55758c;
@@ -88,11 +91,11 @@ h5 {
 i:hover {
   transform: scale(1.5);
 }
-.main-temp {
-  font-size: 36px;
+#main-temp {
+  font-size: 38px;
   font-weight: bold;
 }
-.celcius {
+.celsius {
   font-size: 16px;
 }
 .row {
@@ -123,7 +126,7 @@ i:hover {
 }
 #current-location-button {
   display: block;
-  margin: 0 auto;
+  margin: 5px auto 0;
 }
 #main-city {
   text-transform: capitalize;
@@ -132,4 +135,13 @@ i:hover {
 #weather-description {
   text-transform: capitalize;
   margin: 0;
+}
+.main-temp {
+  font-size: 16px;
+  position: relative;
+  top: -15px;
+}
+.active {
+  font-weight: bold;
+  cursor: default;
 }

@@ -1,3 +1,4 @@
+//Get current date
 function formatDate(date) {
   let currentDate = date.getDate();
   let hours = date.getHours();
@@ -38,13 +39,14 @@ let dateTime = document.querySelector("#date-time");
 let now = new Date();
 dateTime.innerHTML = formatDate(now);
 
+//Display current weather on screen - search and current location button
 function showWeatherMain(response) {
-  console.log(response);
+  celsiusTemperature = response.data.temperature.current;
+
   document.querySelector("#main-city").innerHTML = response.data.city;
 
-  document.querySelector("#main-temp").innerHTML = Math.round(
-    response.data.temperature.current
-  );
+  document.querySelector("#main-temp").innerHTML =
+    Math.round(celsiusTemperature);
   document.querySelector("#weather-description").innerHTML =
     response.data.condition.description;
   //document.querySelector("#low-temp").innerHTML = Math.round(response.data.main.temp_min); this will be in forecast
@@ -76,8 +78,7 @@ function handleSubmit(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-search("Tralee");
-
+// To retrieve weather for current location
 function retrievePosition(response) {
   let lon = response.coordinates.longitude;
   let lat = response.coordinates.latitude;
@@ -94,3 +95,31 @@ function getLocation(event) {
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getLocation);
+
+//To convert temp to Fahrenheit/Celsius
+function showFahrenheitTemp(event) {
+  event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let temperatureElement = document.querySelector("#main-temp");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+function showCelsiusTemp(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#main-temp");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let fahrenheitLink = document.querySelector("#temp-fahrenheit");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp);
+
+let celsiusLink = document.querySelector("#temp-celsius");
+celsiusLink.addEventListener("click", showCelsiusTemp);
+
+let celsiusTemperature = null;
+
+// Default search on loading page
+search("Tralee");
