@@ -73,7 +73,11 @@ h5 {
 }
 .bio,
 #temp-celsius,
-#temp-fahrenheit {
+#temp-fahrenheit,
+#vigo,
+#tralee,
+#hobart,
+#dublin {
   text-decoration: none;
   color: #55758c;
   margin-top: 0;
@@ -83,7 +87,7 @@ h5 {
   font-weight: bolder;
 }
 .main {
-  font-size: 25px;
+  font-size: 28px;
   text-align: center;
 }
 .card-text-main {
@@ -127,7 +131,7 @@ i:hover {
 }
 #current-location-button {
   display: block;
-  margin: 5px auto 0;
+  margin: 10px auto 0;
 }
 #main-city {
   text-transform: capitalize;

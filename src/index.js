@@ -41,6 +41,7 @@ dateTime.innerHTML = formatDate(now);
 
 //Display current weather on screen - search and current location button
 function showWeatherMain(response) {
+  console.log(response);
   celsiusTemperature = response.data.temperature.current;
   document.querySelector("#main-city").innerHTML = response.data.city;
   document.querySelector("#main-temp").innerHTML =
@@ -121,3 +122,32 @@ let celsiusTemperature = null;
 
 // Default search on loading page
 search("Tralee");
+
+//Suggested city search
+function showVigoWeather(event) {
+  event.preventDefault();
+  search("Vigo");
+}
+let vigoWeather = document.querySelector("#vigo");
+vigoWeather.addEventListener("click", showVigoWeather);
+
+function showTraleeWeather(event) {
+  event.preventDefault();
+  search("Tralee");
+}
+let traleeWeather = document.querySelector("#tralee");
+traleeWeather.addEventListener("click", showTraleeWeather);
+
+function showHobartWeather(event) {
+  event.preventDefault();
+  search("Hobart");
+}
+let hobartWeather = document.querySelector("#hobart");
+hobartWeather.addEventListener("click", showHobartWeather);
+
+function showDublinWeather(event) {
+  event.preventDefault();
+  search("Dublin");
+}
+let dublinWeather = document.querySelector("#dublin");
+dublinWeather.addEventListener("click", showDublinWeather);
