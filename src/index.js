@@ -41,6 +41,7 @@ dateTime.innerHTML = formatDate(now);
 
 //Display current weather on screen - search and current location button
 function showWeatherMain(response) {
+  console.log(response);
   celsiusTemperature = response.data.temperature.current;
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
@@ -59,6 +60,15 @@ function showWeatherMain(response) {
   document
     .querySelector("#main-weather-icon")
     .setAttribute("src", response.data.condition.icon_url);
+
+  getForecast(response.data.coordinates);
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "8904bbdf33fa8fc0f4cabacact251o36";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
 }
 
 function search(city) {
@@ -153,7 +163,10 @@ function showDublinWeather(event) {
 let dublinWeather = document.querySelector("#dublin");
 dublinWeather.addEventListener("click", showDublinWeather);
 
-function showForecast() {
+//5-day forecast
+
+function showForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#five-day-forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Mon", "Tues", "Wed", "Thurs", "Fri"];
