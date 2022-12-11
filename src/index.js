@@ -152,3 +152,24 @@ function showDublinWeather(event) {
 }
 let dublinWeather = document.querySelector("#dublin");
 dublinWeather.addEventListener("click", showDublinWeather);
+
+function showForecast() {
+  let forecastElement = document.querySelector("#five-day-forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Mon", "Tues", "Wed", "Thurs", "Fri"];
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col">
+            <div class="card-body">
+              <h5 class="card-title">${day}</h5>
+              <p class="card-text"><i class="fa-solid fa-cloud-sun"></i></p>
+              <p class="card-text"><span>11°</span> <br /><span><strong>22°</strong></span></p>
+            </div>
+          </div>`;
+  });
+  forecastElement.innerHTML = forecastHTML;
+}
+
+showForecast();
