@@ -39,9 +39,8 @@ let dateTime = document.querySelector("#date-time");
 let now = new Date();
 dateTime.innerHTML = formatDate(now);
 
-//Display current weather on screen - search and current location button
+//Display current weather - search and current location button
 function showWeatherMain(response) {
-  console.log(response);
   celsiusTemperature = response.data.temperature.current;
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
@@ -50,8 +49,6 @@ function showWeatherMain(response) {
     Math.round(celsiusTemperature);
   document.querySelector("#weather-description").innerHTML =
     response.data.condition.description;
-  //document.querySelector("#low-temp").innerHTML = Math.round(response.data.main.temp_min); this will be in forecast
-  //document.querySelector("#high-temp").innerHTML = Math.round(response.data.main.temp_max); this will be in forecast
   document.querySelector("#humidity").innerHTML =
     response.data.temperature.humidity;
   document.querySelector("#wind-speed").innerHTML = Math.round(
@@ -65,7 +62,6 @@ function showWeatherMain(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "8904bbdf33fa8fc0f4cabacact251o36";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showForecast);
@@ -172,7 +168,6 @@ function formatDay(timestamp) {
 }
 
 function showForecast(response) {
-  console.log(response.data.daily);
   let forecast = response.data.daily.slice(1, 6);
   let forecastElement = document.querySelector("#five-day-forecast");
   let forecastHTML = `<div class="row">`;
