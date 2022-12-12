@@ -150,3 +150,6 @@ i:hover {
   font-weight: bold;
   cursor: default;
 }
+#forecast-weather-icon {
+  max-width: 42px;
+}

@@ -164,21 +164,39 @@ let dublinWeather = document.querySelector("#dublin");
 dublinWeather.addEventListener("click", showDublinWeather);
 
 //5-day forecast
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+  return days[day];
+}
 
 function showForecast(response) {
   console.log(response.data.daily);
+  let forecast = response.data.daily.slice(1, 6);
   let forecastElement = document.querySelector("#five-day-forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Mon", "Tues", "Wed", "Thurs", "Fri"];
+  document.querySelector("#low-temp").innerHTML = Math.round(
+    response.data.daily[0].temperature.minimum
+  );
+  document.querySelector("#high-temp").innerHTML = Math.round(
+    response.data.daily[0].temperature.maximum
+  );
 
-  days.forEach(function (day) {
+  forecast.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `<div class="col">
             <div class="card-body">
-              <h5 class="card-title">${day}</h5>
-              <p class="card-text"><i class="fa-solid fa-cloud-sun"></i></p>
-              <p class="card-text"><span>11°</span> <br /><span><strong>22°</strong></span></p>
+              <h5 class="card-title">${formatDay(forecastDay.time)}</h5>
+              <p class="card-text"><img src=${
+                forecastDay.condition.icon_url
+              } alt = "weather-icon" id = "forecast-weather-icon"/></p>
+              <p class="card-text"><span>${Math.round(
+                forecastDay.temperature.minimum
+              )}°</span> <br /><span><strong>${Math.round(
+        forecastDay.temperature.maximum
+      )}°</strong></span></p>
             </div>
           </div>`;
   });
