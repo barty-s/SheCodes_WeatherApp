@@ -93,9 +93,6 @@ h5 {
 .card-text-main {
   font-size: 20px;
 }
-i:hover {
-  transform: scale(1.5);
-}
 #main-temp {
   font-size: 38px;
   font-weight: bold;
